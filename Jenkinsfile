@@ -9,15 +9,18 @@ import java.net.URL
 pipeline { 
 try {
 node {
- stages{
-  stage('Checkout'){
+ stages {
+  stage('Checkout')
+  {
     echo "\u2600 BUILD_URL=${env.BUILD_URL}"
   }
-  stage('Build'){
+  stage('Build')
+  {
     def workspace = pwd()
     echo "\u2600 workspace=${workspace}"
   }
-  stage('Vaildate'){
+  stage('Vaildate')
+  {
    echo "Hello"
   }
  }
@@ -35,5 +38,5 @@ echo "Bad exception"
      //   recipients: "${email_to}",
      //   sendToIndividuals: true])
  }
- 
+}
 }
