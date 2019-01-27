@@ -13,7 +13,7 @@ try {
 node {
  stage('Pre-Requirestion'){
   properties([[$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '5']],disableConcurrentBuilds(),])
-  GitClient git = Git.with(listener, environment).in(repository).using(gitExe).getClient();
+  //GitClient git = Git.with(listener, environment).in(repository).using(gitExe).getClient();
   echo("Hello Req")
   echo("\u2600 BUILD_URL=${env.BUILD_URL}")
   def workspace = pwd()
@@ -23,8 +23,8 @@ node {
   echo("\u2600 Java version=${javaversion}")
   branchname = "${env.BRANCH_NAME}"
   echo("\u2600 Branch Name=${branchname}")
-  sh ("git config --global user.email 'admin@procon.com'")
-		sh ("git config --global user.name 'Procon'")
+  sh ("git config --global user.email 'some@email.com'")
+  sh ("git config --global user.name 'jenkins'")
   giturl=sh("git config --get remote.origin.url").trim()
   echo("\u2600 Current Git URL=${giturl}")
  }
