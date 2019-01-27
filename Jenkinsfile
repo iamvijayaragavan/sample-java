@@ -13,8 +13,6 @@ try {
 node {
  stage('Pre-Requirestion'){
   properties([[$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '5']],disableConcurrentBuilds(),])
-  //GitClient git = Git.with(listener, environment).in(repository).using(gitExe).getClient();
-  echo("Hello Req")
   echo("All environments=${env}")
   echo("\u2600 BUILD_URL=${env.BUILD_URL}")
   def workspace = pwd()
@@ -26,25 +24,17 @@ node {
   echo("\u2600 Branch Name=${branchname}")
   sh ("git config --global user.email 'some@email.com'")
   sh ("git config --global user.name 'jenkins'")
-  //giturl= "${env.URL}"
-  //def repositoryUrl = scm.userRemoteConfigs[0].url 
-  //echo("\u2600 Current Git URL=${giturl}")
-  //echo("git url=${repositoryUrl}")
-  
-  //println scm.getUserRemoteConfigs()[0].getUrl()
   def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
   echo("url = ${url}")
  }
  stage('Checkout'){
   echo "Git Checkout"
   checkout scm
-  //def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
-  //echo("url = ${url}")
  }
  stage('Build'){
   echo "Hello World"
   git url: "${url}"
-    withMaven(maven: 'M3') 
+  withMaven(maven: 'M3') 
   sh("mvn clean install")
   }
  stage('SonarQube Ananlyis'){
