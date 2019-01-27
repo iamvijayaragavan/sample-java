@@ -7,9 +7,13 @@ import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import java.net.URL
 pipeline { 
- agent none
-  node {
-   def workspace = pwd()
+ agent {
+   node { 
+    label 'my-docker'
+    def workspace = pwd()
+    }
+ }
+ stages{
    stage('Checkout')
    {
    steps {
