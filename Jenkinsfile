@@ -6,7 +6,7 @@ import groovy.json.JsonSlurperClassic
 import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import java.net.URL
- 
+pipeline { 
 try {
 node {
  stages{
