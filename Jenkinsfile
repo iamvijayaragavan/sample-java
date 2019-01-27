@@ -8,7 +8,6 @@ import groovy.json.JsonOutput
 import java.net.URL
 pipeline { 
  agent none
-node {
  stages {
   stage('Checkout')
   {
@@ -24,5 +23,4 @@ node {
    echo "Hello"
   }
  }
-} // node
 }
