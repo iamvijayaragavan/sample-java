@@ -26,6 +26,8 @@ node {
   sh ("git config --global user.name 'jenkins'")
   def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
   echo("url = ${url}")
+  mvnbuild = Artifactory.newMavenBuild()
+  mvnbuild.tool = 'M3'
  }
  stage('Checkout'){
   echo "Git Checkout"
@@ -36,6 +38,7 @@ node {
   git url: "${url}"
   withMaven(maven: 'M3') 
   sh("mvn clean install")
+  buildInfoModules = mvnbuild.run pom: 'pom.xml', goals: 'clean -U install' + maven_skip_tests + " " + mvnProperty 
   }
  stage('SonarQube Ananlyis'){
   echo "Hi Sonar"
