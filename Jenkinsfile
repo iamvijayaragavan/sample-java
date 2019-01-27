@@ -26,8 +26,8 @@ node {
   echo("\u2600 Branch Name=${branchname}")
   sh ("git config --global user.email 'some@email.com'")
   sh ("git config --global user.name 'jenkins'")
-  //giturl=sh("git config --get remote.origin.url").trim()
-  //echo("\u2600 Current Git URL=${giturl}")
+  giturl= "${env.GIT_URL}"
+  echo("\u2600 Current Git URL=${giturl}")
  }
  stage('Checkout'){
   echo "Git Checkout"
