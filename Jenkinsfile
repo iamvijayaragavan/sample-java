@@ -36,8 +36,4 @@ echo "Bad exception"
      //   sendToIndividuals: true])
  }
  
- // Must re-throw exception to propagate error:
- if (err) {
-     throw err
- }
 }
