@@ -8,7 +8,6 @@ import groovy.json.JsonOutput
 import java.net.URL
 pipeline { 
  agent none
-try {
 node {
  stages {
   stage('Checkout')
@@ -26,18 +25,5 @@ node {
   }
  }
 } // node
-} // try end
-catch (exc) {
-echo "Bad exception"
-} finally {
-  
- (currentBuild.result != "ABORTED") && node("master") {
-     // Send e-mail notifications for failed or unstable builds.
-     // currentBuild.result must be non-null for this step to work.
-     //step([$class: 'Mailer',
-     //   notifyEveryUnstableBuild: true,
-     //   recipients: "${email_to}",
-     //   sendToIndividuals: true])
- }
 }
 }
