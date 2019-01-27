@@ -10,6 +10,7 @@ pipeline {
  agent {
   node {
    def workspace = pwd()
+  }
  stages {
   stage('Checkout')
   {
@@ -32,5 +33,4 @@ pipeline {
   }
  }
 }
- }
 }
