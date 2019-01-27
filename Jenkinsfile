@@ -9,13 +9,16 @@ import java.net.URL
  
 try {
 node {
-stage 'Stage 1'
-echo "\u2600 BUILD_URL=${env.BUILD_URL}" 
-def workspace = pwd()
-echo "\u2600 workspace=${workspace}"
- 
-stage '\u2777 Stage 2'
+ stage('Stage 1'){
+   echo "\u2600 BUILD_URL=${env.BUILD_URL}" 
+   def workspace = pwd()
+   echo "\u2600 workspace=${workspace}"
+ }
+ stage('Stage 2'){
+  echo "Hello World"
+ }
 } // node
+ 
 } // try end
 catch (exc) {
 /*
