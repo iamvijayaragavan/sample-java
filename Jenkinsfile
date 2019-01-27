@@ -10,10 +10,7 @@ import java.net.URL
 try {
 node {
  stage('Pre-Requirestion'){
-  properties([
-					[$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '2']],
-					disableConcurrentBuilds(),
-				])
+  properties([[$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '5']],disableConcurrentBuilds(),])
   echo "Hello Req"
   echo "\u2600 BUILD_URL=${env.BUILD_URL}" 
   def workspace = pwd()
