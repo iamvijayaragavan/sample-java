@@ -10,14 +10,12 @@ pipeline {
  agent none
   node {
    def workspace = pwd()
-  }
- stages {
-  stage('Checkout')
-  {
+   stage('Checkout')
+   {
    steps {
     echo "\u2600 BUILD_URL=${env.BUILD_URL}"
    }
-  }
+   }
   stage('Build')
   {
     
