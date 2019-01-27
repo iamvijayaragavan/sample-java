@@ -31,11 +31,13 @@ node {
   //echo("\u2600 Current Git URL=${giturl}")
   //echo("git url=${repositoryUrl}")
   
-  println scm.getUserRemoteConfigs()[0].getUrl()
+  //println scm.getUserRemoteConfigs()[0].getUrl()
  }
  stage('Checkout'){
   echo "Git Checkout"
   checkout scm
+  def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
+  echo("url = ${url}")
  }
  stage('Build'){
   echo "Hello World"
