@@ -26,9 +26,9 @@ node {
   echo("\u2600 Branch Name=${branchname}")
   sh ("git config --global user.email 'some@email.com'")
   sh ("git config --global user.name 'jenkins'")
-  giturl= "${env.URL}"
+  //giturl= "${env.URL}"
   def repositoryUrl = scm.userRemoteConfigs[0].url 
-  echo("\u2600 Current Git URL=${giturl}")
+  //echo("\u2600 Current Git URL=${giturl}")
   echo("git url=${repositoryUrl}")
  }
  stage('Checkout'){
