@@ -7,6 +7,7 @@ import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import java.net.URL
 pipeline { 
+ agent none
 try {
 node {
  stages {
