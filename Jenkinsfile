@@ -32,12 +32,14 @@ node {
   //echo("git url=${repositoryUrl}")
   
   //println scm.getUserRemoteConfigs()[0].getUrl()
+  def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
+  echo("url = ${url}")
  }
  stage('Checkout'){
   echo "Git Checkout"
   checkout scm
-  def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
-  echo("url = ${url}")
+  //def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
+  //echo("url = ${url}")
  }
  stage('Build'){
   echo "Hello World"
