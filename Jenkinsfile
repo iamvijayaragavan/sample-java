@@ -9,13 +9,22 @@ import java.net.URL
  
 try {
 node {
- stage('Stage 1'){
+ stage('Checkout'){
    echo "\u2600 BUILD_URL=${env.BUILD_URL}" 
    def workspace = pwd()
    echo "\u2600 workspace=${workspace}"
  }
- stage('Stage 2'){
+ stage('Build'){
   echo "Hello World"
+ }
+ stage('SonarQube Ananlyis'){
+  echo "Hi Sonar"
+ }
+ stage('Docker Build'){
+  echo "Hello docker"
+ }
+ stage('Publish Image'){
+  echo "Welclome Hub"
  }
 } // node
  
