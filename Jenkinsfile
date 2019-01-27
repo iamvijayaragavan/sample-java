@@ -7,7 +7,9 @@ import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import java.net.URL
 pipeline { 
- agent none
+ agent {
+  node {
+   def workspace = pwd()
  stages {
   stage('Checkout')
   {
@@ -17,11 +19,9 @@ pipeline {
   }
   stage('Build')
   {
-   node('Jenkins'){
-    def workspace = pwd()
+    
    steps {
     echo "\u2600 workspace=${workspace}"
-   }
    }
   }
   stage('Vaildate')
@@ -32,3 +32,4 @@ pipeline {
   }
  }
 }
+ }
