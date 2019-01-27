@@ -11,10 +11,19 @@ try {
 node {
  stage('Pre-Requirestion'){
   properties([[$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '5']],disableConcurrentBuilds(),])
-  echo "Hello Req"
-  echo "\u2600 BUILD_URL=${env.BUILD_URL}" 
+  echo("Hello Req")
+  echo("\u2600 BUILD_URL=${env.BUILD_URL}")
   def workspace = pwd()
-  echo "\u2600 workspace=${workspace}"
+  echo("\u2600 workspace=${workspace}")
+  mailnotification = "iamvj@gmail.com"
+  javaversion = 'JDK-1.8'
+  echo("\u2600 Java version=${javaversion}")
+  branchname = "${env.BRANCH_NAME}"
+  echo("\u2600 Branch Name=${branchname}")
+  sh ("git config --global user.email 'admin@procon.com'")
+		sh ("git config --global user.name 'Procon'")
+  giturl=sh(script: "git config --get remote.origin.url",returnStdout: true).trim()
+  echo("\u2600 Current Git URL=${giturl}")
  }
  stage('Checkout'){
   echo "Git Checkout"
