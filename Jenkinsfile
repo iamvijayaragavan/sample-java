@@ -30,15 +30,8 @@ node {
   //def repositoryUrl = scm.userRemoteConfigs[0].url 
   //echo("\u2600 Current Git URL=${giturl}")
   //echo("git url=${repositoryUrl}")
-  Jenkins.instance.getAllItems(hudson.model.AbstractProject.class).each {
-  scm = it.getScm()
-  if(scm instanceof hudson.plugins.git.GitSCM)
-  {
-    println scm.getUserRemoteConfigs()[0].getUrl()
-  }
-}
-println "Done"
   
+  println scm.getUserRemoteConfigs()[0].getUrl()
  }
  stage('Checkout'){
   echo "Git Checkout"
