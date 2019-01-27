@@ -7,7 +7,7 @@ import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import java.net.URL
 pipeline { 
- agent {
+ agent none
   node {
    def workspace = pwd()
   }
@@ -32,5 +32,4 @@ pipeline {
    }
   }
  }
-}
 }
