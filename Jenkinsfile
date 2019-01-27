@@ -11,6 +11,7 @@ try {
 node {
  stage('Pre-Requirestion'){
   properties([[$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '5']],disableConcurrentBuilds(),])
+  GitClient git = Git.with(listener, environment).in(repository).using(gitExe).getClient();
   echo("Hello Req")
   echo("\u2600 BUILD_URL=${env.BUILD_URL}")
   def workspace = pwd()
