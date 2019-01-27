@@ -22,7 +22,7 @@ node {
   echo("\u2600 Branch Name=${branchname}")
   sh ("git config --global user.email 'admin@procon.com'")
 		sh ("git config --global user.name 'Procon'")
-  giturl=sh("git config --get remote.origin.url").trim())
+  giturl=sh("git config --get remote.origin.url").trim()
   echo("\u2600 Current Git URL=${giturl}")
  }
  stage('Checkout'){
