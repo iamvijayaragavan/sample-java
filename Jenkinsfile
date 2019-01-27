@@ -9,10 +9,14 @@ import java.net.URL
  
 try {
 node {
+ stage('Pre-Requirestion'){
+  echo "Hello Req"
+  echo "\u2600 BUILD_URL=${env.BUILD_URL}" 
+  def workspace = pwd()
+  echo "\u2600 workspace=${workspace}"
+ }
  stage('Checkout'){
-   echo "\u2600 BUILD_URL=${env.BUILD_URL}" 
-   def workspace = pwd()
-   echo "\u2600 workspace=${workspace}"
+  echo "Git Checkout"
  }
  stage('Build'){
   echo "Hello World"
