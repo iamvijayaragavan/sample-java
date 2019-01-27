@@ -17,8 +17,8 @@ pipeline {
   }
   stage('Build')
   {
+   def workspace = pwd()
    steps {
-    def workspace = pwd()
     echo "\u2600 workspace=${workspace}"
    }
   }
