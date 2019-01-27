@@ -44,7 +44,7 @@ node {
  stage('Build'){
   echo "Hello World"
   git url: "${url}"
-    withMaven( maven: 'M3', mavenSettingsConfig: 'my-maven-settings', mavenLocalRepo: '.repository') 
+    withMaven(maven: 'M3') 
   sh("mvn clean install")
   }
  stage('SonarQube Ananlyis'){
