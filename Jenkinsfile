@@ -11,16 +11,22 @@ pipeline {
  stages {
   stage('Checkout')
   {
+   steps {
     echo "\u2600 BUILD_URL=${env.BUILD_URL}"
+   }
   }
   stage('Build')
   {
+   steps {
     def workspace = pwd()
     echo "\u2600 workspace=${workspace}"
+   }
   }
   stage('Vaildate')
   {
+   steps{
    echo "Hello"
+   }
   }
  }
 }
