@@ -46,7 +46,8 @@ node {
   }
  }
  stage('Docker Build'){
-  echo "Hello docker"
+  def mvnHome = tool 'M3'
+  sh("${mvnHome}/bin/mvn package")
  }
  stage('Publish Image'){
   echo "Welclome Hub"
