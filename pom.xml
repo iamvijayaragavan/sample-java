@@ -6,6 +6,10 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>my-app</name>
+  <properties>
+  <dockerfile.version>1.4.1</dockerfile.version>
+  <docker.image.prefix>localdev</docker.image.prefix>
+</properties>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
