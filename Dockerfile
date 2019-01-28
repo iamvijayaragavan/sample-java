@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-alpine3.7
 WORKDIR /root/
-COPY ./target/app.jar /usr/src/myapp/target/app.jar .
+COPY ./target/my-app-1.0-SNAPSHOT.jar /usr/src/myapp/target/my-app-1.0-SNAPSHOT.jar .
 
 EXPOSE 8123
-ENTRYPOINT ["java", "-jar", "./app.jar"]
+ENTRYPOINT ["java", "-jar", "./my-app-1.0-SNAPSHOT.jar"]
