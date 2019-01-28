@@ -28,19 +28,19 @@ node {
   echo("url = ${url}")
   def mvnHome = tool 'M3'
   def javahome = tool 'openjdk'
-  //mvnbuild = Artifactory.newMavenBuild()
-  //mvnbuild.tool = 'M3'
  }
  stage('Checkout'){
   echo "Git Checkout"
   checkout scm
  }
  stage('Build'){
-  echo "Hello World"
   sh "${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify"
   }
  stage('SonarQube Ananlyis'){
   echo "Hi Sonar"
+  withSonarQubeEnv('sonar'){
+   sh("${mvnHome}/bin/mvn sonar:sonar"
+  }
  }
  stage('Docker Build'){
   echo "Hello docker"
