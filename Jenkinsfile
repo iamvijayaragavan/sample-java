@@ -34,6 +34,8 @@ node {
   checkout scm
  }
  stage('Build'){
+  def mvnHome = tool 'M3'
+  def javahome = tool 'openjdk'
   sh("${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify")
   }
  stage('SonarQube Ananlyis'){
