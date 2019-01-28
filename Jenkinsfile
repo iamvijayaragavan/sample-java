@@ -41,6 +41,7 @@ node {
  stage('SonarQube Ananlyis'){
   echo "Hi Sonar"
   withSonarQubeEnv('sonar'){
+   def mvnHome = tool 'M3'
    sh("${mvnHome}/bin/mvn sonar:sonar")
   }
  }
