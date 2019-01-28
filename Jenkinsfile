@@ -34,12 +34,12 @@ node {
   checkout scm
  }
  stage('Build'){
-  sh "${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify"
+  sh("${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify")
   }
  stage('SonarQube Ananlyis'){
   echo "Hi Sonar"
   withSonarQubeEnv('sonar'){
-   sh("${mvnHome}/bin/mvn sonar:sonar"
+   sh("${mvnHome}/bin/mvn sonar:sonar")
   }
  }
  stage('Docker Build'){
