@@ -36,7 +36,7 @@ node {
  stage('Build'){
   def mvnHome = tool 'M3'
   def javahome = tool 'openjdk'
-  sh("${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify")
+  sh("${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore clean install")
   }
  stage('SonarQube Ananlyis'){
   echo "Hi Sonar"
