@@ -25,9 +25,9 @@ node {
   sh ("git config --global user.email 'some@email.com'")
   sh ("git config --global user.name 'jenkins'")
   //def url = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
-  echo("url = ${url}")
-  def mvnHome = tool 'M3'
-  def javahome = tool 'openjdk'
+  //echo("url = ${url}")
+  //def mvnHome = tool 'M3'
+  //def javahome = tool 'openjdk'
  }
  stage('Checkout'){
   echo "Git Checkout"
